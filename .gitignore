@@ -1,0 +1,14 @@
+node_modules
+dist
+coverage
+playwright-report
+test-results
+blob-report
+.vitest-attachments
+__screenshots__
+*.local
+.env
+.env.*
+!.env.example
+.DS_Store
+*.tsbuildinfo
