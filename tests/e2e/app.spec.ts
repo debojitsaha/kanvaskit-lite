@@ -18,3 +18,43 @@ test('toolbar adds a rectangle without errors', async ({ page }) => {
   await expect(zoomLabel).toHaveText(/\d+%/);
   await expect(page.getByRole('status')).toHaveCount(0);
 });
+
+test('layers panel lists objects and Delete removes the selected one', async ({ page }) => {
+  await page.goto('/');
+  const layers = page.getByRole('complementary', { name: 'Layers' });
+  await page.getByRole('button', { name: 'Add rectangle' }).click();
+  await page.getByRole('button', { name: 'Add ellipse' }).click();
+  await expect(layers.locator('li')).toHaveCount(2);
+  await page.keyboard.press('Delete');
+  await expect(layers.locator('li')).toHaveCount(1);
+});
+
+test('Export PNG downloads kanvaskit.png', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.getByRole('button', { name: 'Export PNG' })).toBeEnabled();
+  const downloadPromise = page.waitForEvent('download');
+  await page.getByRole('button', { name: 'Export PNG' }).click();
+  const download = await downloadPromise;
+  expect(download.suggestedFilename()).toBe('kanvaskit.png');
+});
+
+test('saved JSON reopens with the same layers', async ({ page }) => {
+  await page.goto('/');
+  const layers = page.getByRole('complementary', { name: 'Layers' });
+  await page.getByRole('button', { name: 'Add rectangle' }).click();
+  await page.getByRole('button', { name: 'Add text' }).click();
+  await expect(layers.locator('li')).toHaveCount(2);
+
+  const downloadPromise = page.waitForEvent('download');
+  await page.getByRole('button', { name: 'Save JSON' }).click();
+  const download = await downloadPromise;
+  expect(download.suggestedFilename()).toBe('kanvaskit.json');
+  const savedPath = test.info().outputPath('kanvaskit.json');
+  await download.saveAs(savedPath);
+
+  await page.reload();
+  await expect(page.getByRole('button', { name: 'Save JSON' })).toBeEnabled();
+  await expect(layers.locator('li')).toHaveCount(0);
+  await page.locator('input[type=file][accept*="json"]').setInputFiles(savedPath);
+  await expect(layers.locator('li')).toHaveCount(2);
+});
