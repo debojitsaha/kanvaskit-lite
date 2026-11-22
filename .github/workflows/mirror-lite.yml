@@ -19,6 +19,7 @@ env:
 
 jobs:
   mirror:
+    if: github.repository == 'debojitsaha/kanvaskit'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
