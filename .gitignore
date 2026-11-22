@@ -5,6 +5,7 @@ playwright-report
 test-results
 blob-report
 .vitest-attachments
+.vitest
 __screenshots__
 *.local
 .env
