@@ -58,3 +58,15 @@ test('saved JSON reopens with the same layers', async ({ page }) => {
   await page.locator('input[type=file][accept*="json"]').setInputFiles(savedPath);
   await expect(layers.locator('li')).toHaveCount(2);
 });
+
+test('shows website and Pro waitlist links in the header', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.getByRole('link', { name: 'Website' })).toHaveAttribute(
+    'href',
+    'https://kanvaskit.netlify.app',
+  );
+  await expect(page.getByRole('link', { name: 'Pro waitlist' })).toHaveAttribute(
+    'href',
+    'https://tally.so/r/kbNOgR',
+  );
+});

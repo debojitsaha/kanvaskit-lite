@@ -4,7 +4,7 @@ Kanvaskit Lite is a free, MIT-licensed starter kit for building a browser image 
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-[Live demo](https://debojitsaha.github.io/kanvaskit-lite/)
+[Live demo](https://debojitsaha.github.io/kanvaskit-lite/) · [Website](https://kanvaskit.netlify.app) · [Pro waitlist](https://tally.so/r/kbNOgR)
 
 ![Kanvaskit Lite demo: adding text and shapes, duplicating, grouping, hiding a layer and zooming](docs/media/demo.gif)
 
@@ -133,7 +133,7 @@ Decision records are in [`docs/adr/`](docs/adr/).
 
 Kanvaskit Pro is a paid edition, coming later. It builds on the same core and adds features for production editors. Examples include templates, more object types, video editing, and an agency license.
 
-Join the waitlist: <!-- TODO: Tally waitlist URL --> coming soon.
+[Join the Pro waitlist](https://tally.so/r/kbNOgR) for early-access pricing.
 
 ## Contributing
 
