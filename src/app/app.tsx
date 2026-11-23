@@ -3,6 +3,7 @@ import { ArrangeControls } from '@/app/toolbar/arrange-controls';
 import { FileControls } from '@/app/toolbar/file-controls';
 import { Toolbar } from '@/app/toolbar/toolbar';
 import { ZoomControls } from '@/app/toolbar/zoom-controls';
+import { mProWaitlistUrl, mWebsiteUrl } from '@/constants/links';
 import { createLitePlugins } from '@/plugins';
 import { EditorProvider } from '@/react';
 
@@ -19,7 +20,25 @@ export function App() {
         <Toolbar />
         <ArrangeControls />
         <FileControls />
-        <div className="ml-auto">
+        <div className="ml-auto flex items-center gap-4">
+          <nav aria-label="Project links" className="flex items-center gap-3 text-sm">
+            <a
+              href={mWebsiteUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+            >
+              Website
+            </a>
+            <a
+              href={mProWaitlistUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+            >
+              Pro waitlist
+            </a>
+          </nav>
           <ZoomControls />
         </div>
       </header>

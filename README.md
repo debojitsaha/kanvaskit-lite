@@ -4,7 +4,7 @@ Kanvaskit Lite is a free, MIT-licensed starter kit for building a browser image 
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-[Live demo](https://debojitsaha.github.io/kanvaskit-lite/) · [Website](https://flowing-organization-036048.framer.app) · [Pro waitlist](https://tally.so/r/kbNOgR)
+[Live demo](https://debojitsaha.github.io/kanvaskit-lite/) · [Website](https://kanvaskit.netlify.app) · [Pro waitlist](https://tally.so/r/kbNOgR)
 
 ![Kanvaskit Lite demo: adding text and shapes, duplicating, grouping, hiding a layer and zooming](docs/media/demo.gif)
 
